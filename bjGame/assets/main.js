@@ -26,14 +26,14 @@ const hostCardsArray = [];
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    if(sessionStorage.getItem("firstOpen") === null){
+    if(localStorage.getItem("firstOpen") === null){
         alertF("BlackJack Oyununa Hoşgeldiniz! Oyuna başlarken size <span style='text-decoration: underline;'>1000TL</span> bakiye veriyoruz. Oyuna başlamak için aşağıdaki tuşa basınız. <br> (Tuşa basarak çerezleri kabul etmiş sayılırsınız.)", "blue", "firstOpen", 700 ,"noInfo");
     }else{
-        scoreboard.innerHTML = sessionStorage.getItem("bakiye");
-        if(sessionStorage.getItem("bakiye") == 0 || sessionStorage.getItem("bakiye") < 0){
+        scoreboard.innerHTML = localStorage.getItem("bakiye");
+        if(localStorage.getItem("bakiye") == 0 || localStorage.getItem("bakiye") < 0){
             alertF("Olamaz! Görünüşe göre bakiyeniz bitmiş. Size oynamaya devam edebilmeniz için 200TL bakiye veriyoruz. Şeytanınız bol olsun :))", "black", 0, 300 , "noInfo")
-            sessionStorage.setItem("bakiye", 200);
-            scoreboard.innerHTML = sessionStorage.getItem("bakiye");
+            localStorage.setItem("bakiye", 200);
+            scoreboard.innerHTML = localStorage.getItem("bakiye");
         }
     }
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function startGame(){
-    if(price.value != "" && Number(price.value) <= Number(sessionStorage.getItem("bakiye")) && price.value != 0){
+    if(price.value != "" && Number(price.value) <= Number(localStorage.getItem("bakiye")) && price.value != 0){
 
         console.log("----Yeni Oyun----")
 
@@ -174,7 +174,7 @@ function doubleCard(){
 
         scoreboard.innerHTML = Number(scoreboard.innerHTML) - Number(betPrice);
         betPrice += betPrice;
-        sessionStorage.setItem("bakiye", Number(scoreboard.innerHTML));
+        localStorage.setItem("bakiye", Number(scoreboard.innerHTML));
 
             playerCardsArray.push(getRandomCard(playerCardsArray , 1, "player"));
 
@@ -234,7 +234,7 @@ function gameEnd(who){
             case "player":
                 isGameEnd = true;
                 scoreboard.innerHTML = Number(betPrice) * 2 + Number(scoreboard.innerHTML);
-                sessionStorage.setItem("bakiye", Number(scoreboard.innerHTML));
+                localStorage.setItem("bakiye", Number(scoreboard.innerHTML));
 
                 alertF("Oyunu kazandınız!", "green")
             break;
@@ -242,14 +242,14 @@ function gameEnd(who){
             case "host":
                 isGameEnd = true;
 
-                sessionStorage.setItem("bakiye", Number(scoreboard.innerHTML));
+                localStorage.setItem("bakiye", Number(scoreboard.innerHTML));
                 alertF("Oyunu kaybettiniz!", "red")
             break;
 
             case "draw":
                 isGameEnd = true;
                 scoreboard.innerHTML = Number(betPrice) + Number(scoreboard.innerHTML);
-                sessionStorage.setItem("bakiye", Number(scoreboard.innerHTML));
+                localStorage.setItem("bakiye", Number(scoreboard.innerHTML));
 
                 alertF("Oyun berabere!", "orange");
         }
@@ -278,9 +278,9 @@ function alertF(message, color, type, time = 700, info){
     close.innerHTML = "Tamam";
     close.onclick = function(){
         if(type == "firstOpen"){
-            sessionStorage.setItem("firstOpen", true);
-            sessionStorage.setItem("bakiye", 1000);
-            scoreboard.innerHTML = sessionStorage.getItem("bakiye");
+            localStorage.setItem("firstOpen", true);
+            localStorage.setItem("bakiye", 1000);
+            scoreboard.innerHTML = localStorage.getItem("bakiye");
         }
         document.body.removeChild(alert);
         document.body.removeChild(alertBg);   
@@ -323,10 +323,10 @@ function resetGame(){
     hostRealTotal = 0;
     betPrice = 0;
 
-    if(sessionStorage.getItem("bakiye") == 0 || sessionStorage.getItem("bakiye") < 0){
+    if(localStorage.getItem("bakiye") == 0 || localStorage.getItem("bakiye") < 0){
         alertF("Olamaz! Görünüşe göre bakiyeniz bitmiş. Size oynamaya devam edebilmeniz için 200TL bakiye veriyoruz. Şeytanınız bol olsun :))", "black", 0, 300 , "noInfo")
-        sessionStorage.setItem("bakiye", 200);
-        scoreboard.innerHTML = sessionStorage.getItem("bakiye");
+        localStorage.setItem("bakiye", 200);
+        scoreboard.innerHTML = localStorage.getItem("bakiye");
     }
     
 }
