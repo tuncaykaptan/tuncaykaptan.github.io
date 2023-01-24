@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack Game</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    
+<main class="main">
+
+        <div class="scoreboard"><span id="scoreboard">0</span><span>TL</span></div>
+    
+    <div class="gameArena">
+        <div class="top">
+            <div class="cardSection host">
+                Kurpiyer
+                <div class="numberSection hostCard">
+                    <div id="hostCards" class="cards"></div>
+                    <div id="hostTotal" class="total">0</div>
+                </div>
+            </div>
+
+            <div class="cardSection player">
+                Sen
+                <div class="numberSection playerCard">
+                    <div id="userCards" class="cards"></div>
+                    <div id="userTotal" class="total">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <input type="text" id="price" placeholder="Bahis tutarını giriniz." onkeypress="isNumber(event)">
+            <a id="startButton" onclick="startGame()">Başlat</a>
+        </div>
+        </div>
+
+        <div class="buttons">
+            <button id="takeButton" class="btn btn-take" onclick="takeCard()">Kart Çek</button>
+            <button id="stopButton" class="btn btn-stop" onclick="stopCard()">Böyle Kalsın</button>
+            <div class="addButton">
+                <button class="btn btn-add">Katla</button>
+                <button class="btn btn-add">Katla</button>
+                <button class="btn btn-add">Katla</button>
+                <button id="doubleButton" class="btn btn-add" onclick="doubleCard()">Katla</button>
+            </div>
+        </div>
+        
+    </div>
+<script src="assets/main.js"></script>
+</main>
+</body>
+</html>
