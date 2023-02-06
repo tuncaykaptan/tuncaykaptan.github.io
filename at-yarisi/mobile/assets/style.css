@@ -1,0 +1,77 @@
+body{
+    background-color: #121212;
+    }
+    #disarisi{
+        width: 200px;
+        height: auto;
+        margin: auto;
+    }
+    #ekran{
+        width: 200px;
+        border: 1px solid green;
+        background-color: green;
+        margin: auto;
+        padding: 10px;
+    }
+    .at{
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        margin-top: 10px;
+        transition: 20000ms all;
+        transition-delay: 30ms;
+    }
+    #at1{background-color: aqua;}
+    #at2{background-color: red;}
+    #at3{background-color: azure;}
+    #panel{
+        width: 90%;
+        border: 5px solid blue;
+        border-radius: 10px;
+        padding: 2px;
+        margin: auto;
+        padding-top:15px;
+        background-color: white;
+    }
+    #metin{
+        font-size: 20px;
+    }
+    #bakiye{
+        margin: auto;
+        font-size: 15px;
+        width: 120px;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        background-color: rgb(187, 187, 40);
+        border: 1px solid rgb(187, 187, 40);
+        border-radius: 17px;
+    }
+    #input{
+        margin-top: 10px;
+    }
+    #sifirla{
+        display: none;
+    }
+    #baslik{
+        text-align: center;
+        color: white;
+        width: 200px;
+        margin: auto;
+    }
+    .ortala{
+        margin: auto;
+        text-align: center;
+    }
+    .button{
+        width: 100px;
+        height: 25px;
+    }
+    #credit{
+        font-size: 10px;
+        text-align: center;
+        color: white;
+        width: 100px;
+        margin: auto;
+    }
